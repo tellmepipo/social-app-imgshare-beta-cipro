@@ -25,6 +25,9 @@ ctrl.create = async (req, res) => {
             description: req.body.description
         });
         const imageSaved = await newImg.save();
+    } else {
+        await fs.unlink(imageTempPath);
+        res.status(500).json({error: 'Only Images are allowed'});
     }
     res.send('works!');
 };
