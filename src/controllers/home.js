@@ -9,6 +9,7 @@ ctrl.index = async (req, res) =>{
         let viewModel = {images: []};
         viewModel.images = images;
         viewModel = await sidebar(viewModel);
+        //console.log(viewModel.sidebar.comments[0].image);
         res.render('index', viewModel);
     };
 
